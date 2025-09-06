@@ -1,5 +1,5 @@
 {
-  "name": "バックエンドの機能追加",
+  "name": "LinkPoket",
   "description": "A mobile application UI prototype for parents to monitor their children's online safety. It includes a parent dashboard, alert details, and a child-facing intervention screen.",
   "requestFramePermissions": []
 }
