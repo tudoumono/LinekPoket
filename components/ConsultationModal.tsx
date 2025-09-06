@@ -1,9 +1,11 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Icon from './Icon';
 
 interface ConsultationModalProps {
   onClose: () => void;
+  alertId: string;
 }
 
 const consultationSections = [
@@ -28,7 +30,14 @@ const consultationSections = [
     }
 ]
 
-const ConsultationModal: React.FC<ConsultationModalProps> = ({ onClose }) => {
+const ConsultationModal: React.FC<ConsultationModalProps> = ({ onClose, alertId }) => {
+  const navigate = useNavigate();
+
+  const handleAiConsultClick = () => {
+    navigate(`/alert/${alertId}/consult-chat`);
+    onClose();
+  };
+
   return (
     <div 
       className="absolute inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-end"
@@ -56,9 +65,25 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ onClose }) => {
         </p>
 
         <div className="overflow-y-auto space-y-5">
+            <section>
+                <button
+                onClick={handleAiConsultClick}
+                className="w-full text-left p-4 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200"
+                >
+                <div className="flex items-center gap-3">
+                    <div className="p-2 bg-blue-100 rounded-full">
+                        <Icon name="message-circle" className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                    <p className="font-bold text-blue-800">AIアシスタントに相談する</p>
+                    <p className="text-xs text-blue-600">お子様への声かけなどをAIが提案します</p>
+                    </div>
+                </div>
+                </button>
+            </section>
             {consultationSections.map(section => (
                  <section key={section.title}>
-                    <h3 className="text-sm font-bold text-gray-600 mb-2">{section.title}</h3>
+                    <h3 className="text-sm font-bold text-gray-600 mb-2 pt-2">{section.title}</h3>
                     <ul className="space-y-3">
                     {section.links.map(link => (
                         <li key={link.name}>

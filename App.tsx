@@ -24,6 +24,7 @@ import ConsultParentScreen from './screens/ConsultParentScreen';
 import SafetyChatScreen from './screens/SafetyChatScreen';
 import EmergencyContactsScreen from './screens/EmergencyContactsScreen';
 import EditEmergencyContactScreen from './screens/EditEmergencyContactScreen';
+import ParentConsultChatScreen from './screens/ParentConsultChatScreen';
 
 const App: React.FC = () => {
   return (
@@ -38,6 +39,7 @@ const App: React.FC = () => {
               <Route path="/alerts" element={<AlertsScreen />} />
               <Route path="/alert/:id" element={<AlertDetailScreen />} />
               <Route path="/alert/:id/conversation" element={<ConversationScreen />} />
+              <Route path="/alert/:id/consult-chat" element={<ParentConsultChatScreen />} />
               <Route path="/settings" element={<SettingsScreen />} />
               <Route path="/profile" element={<ChildProfileScreen />} />
               <Route path="/profile/:id" element={<EditChildProfileScreen />} />

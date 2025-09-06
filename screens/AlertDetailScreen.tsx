@@ -108,7 +108,7 @@ const AlertDetailScreen: React.FC = () => {
           </button>
         </main>
       </div>
-      {isModalOpen && <ConsultationModal onClose={() => setIsModalOpen(false)} />}
+      {isModalOpen && <ConsultationModal onClose={() => setIsModalOpen(false)} alertId={alert.id} />}
     </>
   );
 };
